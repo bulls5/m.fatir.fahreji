@@ -1,104 +1,91 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Layanan Pengaduan</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Layanan Pengaduan Masyarakat</title>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background: #f1f5f9;
-      color: #333;
+      background: url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
+      background-size: cover;
+      backdrop-filter: blur(4px);
     }
 
     .container {
-      max-width: 700px;
-      margin: 40px auto;
-      padding: 20px;
-      background: #fff;
+      max-width: 600px;
+      margin: 100px auto;
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 30px;
       border-radius: 12px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     }
 
     h1 {
       text-align: center;
-      color: #1e293b;
+      color: #333;
     }
 
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-bottom: 30px;
-    }
-
-    input, textarea, button {
+    input[type="text"], textarea {
+      width: 100%;
       padding: 10px;
-      font-size: 1rem;
-      border-radius: 8px;
-      border: 1px solid #cbd5e1;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 14px;
     }
 
     button {
-      background-color: #3b82f6;
+      padding: 10px 20px;
+      background-color: #007bff;
       color: white;
-      cursor: pointer;
       border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
       transition: background-color 0.3s ease;
     }
 
     button:hover {
-      background-color: #2563eb;
+      background-color: #0056b3;
     }
 
     .pengaduan-list {
       margin-top: 20px;
     }
-
-    .pengaduan-item {
-      background: #e0f2fe;
-      border-left: 4px solid #0284c7;
-      padding: 12px;
-      margin-bottom: 10px;
-      border-radius: 6px;
-    }
-
-    .pengaduan-item strong {
-      color: #0f172a;
-    }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Layanan Pengaduan</h1>
-
+    <h1>Layanan Pengaduan Masyarakat</h1>
     <form id="formPengaduan">
-      <input type="text" id="nama" placeholder="Nama Anda" required />
-      <textarea id="isi" rows="3" placeholder="Tulis pengaduan Anda..." required></textarea>
+      <input type="text" id="nama" placeholder="Nama Anda" required>
+      <textarea id="pengaduan" rows="4" placeholder="Tulis pengaduan Anda..." required></textarea>
       <button type="submit">Kirim</button>
     </form>
 
-    <h2>Daftar Pengaduan</h2>
-    <div id="daftarPengaduan" class="pengaduan-list"></div>
+    <div class="pengaduan-list">
+      <h3>Daftar Pengaduan</h3>
+      <ul id="listPengaduan"></ul>
+    </div>
   </div>
 
   <script>
-    const form = document.getElementById("formPengaduan");
-    const daftarPengaduan = document.getElementById("daftarPengaduan");
+    const form = document.getElementById('formPengaduan');
+    const list = document.getElementById('listPengaduan');
 
-    form.addEventListener("submit", function (e) {
+    form.addEventListener('submit', function(e) {
       e.preventDefault();
-      const nama = document.getElementById("nama").value.trim();
-      const isi = document.getElementById("isi").value.trim();
-
-      if (nama && isi) {
-        const div = document.createElement("div");
-        div.classList.add("pengaduan-item");
-        div.innerHTML = <strong>${nama}:</strong> ${isi};
-        daftarPengaduan.appendChild(div);
-
+      const nama = document.getElementById('nama').value;
+      const pengaduan = document.getElementById('pengaduan').value;
+      
+      if(nama && pengaduan){
+        const li = document.createElement('li');
+        li.textContent = ${nama}: ${pengaduan};
+        list.appendChild(li);
+        
         form.reset();
       }
     });
