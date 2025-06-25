@@ -1,21 +1,107 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Layanan Pengaduan</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f1f5f9;
+      color: #333;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #1e293b;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    input, textarea, button {
+      padding: 10px;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: 1px solid #cbd5e1;
+    }
+
+    button {
+      background-color: #3b82f6;
+      color: white;
+      cursor: pointer;
+      border: none;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #2563eb;
+    }
+
+    .pengaduan-list {
+      margin-top: 20px;
+    }
+
+    .pengaduan-item {
+      background: #e0f2fe;
+      border-left: 4px solid #0284c7;
+      padding: 12px;
+      margin-bottom: 10px;
+      border-radius: 6px;
+    }
+
+    .pengaduan-item strong {
+      color: #0f172a;
+    }
+  </style>
 </head>
 <body>
-  <h1>Layanan Pengaduan</h1>
-  <form id="form-pengaduan">
-    <input type="text" id="nama" placeholder="Nama Anda" required>
-    <textarea id="pesan" placeholder="Tulis pengaduan Anda..." required></textarea>
-    <button type="submit">Kirim</button>
-  </form>
+  <div class="container">
+    <h1>Layanan Pengaduan</h1>
 
-  <h2>Daftar Pengaduan</h2>
-  <ul id="daftar-pengaduan"></ul>
+    <form id="formPengaduan">
+      <input type="text" id="nama" placeholder="Nama Anda" required />
+      <textarea id="isi" rows="3" placeholder="Tulis pengaduan Anda..." required></textarea>
+      <button type="submit">Kirim</button>
+    </form>
 
-  <script src="script.js"></script>
+    <h2>Daftar Pengaduan</h2>
+    <div id="daftarPengaduan" class="pengaduan-list"></div>
+  </div>
+
+  <script>
+    const form = document.getElementById("formPengaduan");
+    const daftarPengaduan = document.getElementById("daftarPengaduan");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const nama = document.getElementById("nama").value.trim();
+      const isi = document.getElementById("isi").value.trim();
+
+      if (nama && isi) {
+        const div = document.createElement("div");
+        div.classList.add("pengaduan-item");
+        div.innerHTML = <strong>${nama}:</strong> ${isi};
+        daftarPengaduan.appendChild(div);
+
+        form.reset();
+      }
+    });
+  </script>
 </body>
 </html>
