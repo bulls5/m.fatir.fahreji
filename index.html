@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Layanan keluhan Masyarakat</title>
+  <title>Layanan Keluhan Masyarakat</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
+      font-family: sans-serif;
       background: url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
       background-size: cover;
       backdrop-filter: blur(4px);
@@ -17,10 +17,10 @@
     .container {
       max-width: 600px;
       margin: 100px auto;
-      background-color: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.95);
       padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     }
 
     h1 {
@@ -28,28 +28,29 @@
       color: #333;
     }
 
-    input[type="text"], textarea {
+    input, textarea {
       width: 100%;
-      padding: 10px;
+      padding: 12px;
       margin: 10px 0;
-      border-radius: 5px;
+      border-radius: 8px;
       border: 1px solid #ccc;
       font-size: 14px;
     }
 
     button {
-      padding: 10px 20px;
-      background-color: #007bff;
+      width: 100%;
+      padding: 12px;
+      background-color: #28a745;
       color: white;
       border: none;
-      border-radius: 6px;
+      border-radius: 8px;
       font-size: 16px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: background 0.3s;
     }
 
     button:hover {
-      background-color: #0056b3;
+      background-color: #218838;
     }
 
     .pengaduan-list {
@@ -59,36 +60,12 @@
 </head>
 <body>
   <div class="container">
-    <h1>Layanan keluhan Masyarakat</h1>
-    <form id="formPengaduan">
-      <input type="text" id="nama" placeholder="Nama Anda" required>
-      <textarea id="keluhan" rows="4" placeholder="Tulis pengaduan Anda..." required></textarea>
-      <button type="submit">Kirim</button>
+    <h1>Layanan Keluhan Masyarakat</h1>
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <input type="text" name="nama" placeholder="Nama Anda" required>
+      <textarea name="keluhan" rows="5" placeholder="Tulis keluhan Anda..." required></textarea>
+      <button type="submit">Kirim Keluhan</button>
     </form>
-
-    <div class="pengaduan-list">
-      <h3>Daftar Pengaduan</h3>
-      <ul id="listPengaduan"></ul>
-    </div>
   </div>
-
-  <script>
-    const form = document.getElementById('formPengaduan');
-    const list = document.getElementById('listPengaduan');
-
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      const nama = document.getElementById('nama').value;
-      const pengaduan = document.getElementById('pengaduan').value;
-      
-      if(nama && pengaduan){
-        const li = document.createElement('li');
-        li.textContent = ${nama}: ${pengaduan};
-        list.appendChild(li);
-        
-        form.reset();
-      }
-    });
-  </script>
 </body>
 </html>
