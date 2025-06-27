@@ -1,71 +1,81 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Layanan Keluhan Masyarakat</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: sans-serif;
-      background: url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
-      background-size: cover;
-      backdrop-filter: blur(4px);
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layanan Keluhan Masyarakat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://images.unsplash.com/photo-1605648938341-d3b9a3f5e2a6'); /* Gambar pedesaan */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+        }
 
-    .container {
-      max-width: 600px;
-      margin: 100px auto;
-      background: rgba(255, 255, 255, 0.95);
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    }
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #555;
+        }
 
-    h1 {
-      text-align: center;
-      color: #333;
-    }
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
 
-    input, textarea {
-      width: 100%;
-      padding: 12px;
-      margin: 10px 0;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 14px;
-    }
+        input, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
 
-    button {
-      width: 100%;
-      padding: 12px;
-      background-color: #28a745;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+        }
 
-    button:hover {
-      background-color: #218838;
-    }
+        .info {
+            margin-top: 30px;
+        }
 
-    .pengaduan-list {
-      margin-top: 20px;
-    }
-  </style>
+        .info p {
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
+
+<div class="container">
     <h1>Layanan Keluhan Masyarakat</h1>
-    <form action="https://formspree.io/f/mgvypage" method="POST">
-      <input type="text" name="nama" placeholder="Nama Anda" required>
-      <textarea name="keluhan" rows="5" placeholder="Tulis keluhan Anda..." required></textarea>
-      <button type="submit">Kirim Keluhan</button>
-    </form>
-  </div>
+    <input type="text" placeholder="Nama Anda">
+    <textarea placeholder="Tulis keluhan Anda..."></textarea>
+    <button>Kirim Keluhan</button>
+
+    <div class="info">
+        <h2>Tentang Desa Bojong</h2>
+        <p><strong>Desa Bojong</strong> merupakan salah satu desa yang terletak di Kecamatan Kemang, Kabupaten Bogor, Jawa Barat. Desa ini memiliki masyarakat yang aktif dan lingkungan yang asri.</p>
+
+        <h3>Visi</h3>
+        <p>Menjadi desa yang mandiri, maju, dan sejahtera berbasis potensi lokal dan kebersamaan warga.</p>
+
+        <h3>Misi</h3>
+        <ul>
+            <li>Meningkatkan pelayanan publik yang cepat dan transparan.</li>
+            <li>Memberdayakan potensi masyarakat dan pemuda desa.</li>
+            <li>Meningkatkan infrastruktur dan kebersihan lingkungan.</li>
+            <li>Mendorong pertanian dan UMKM lokal.</li>
+        </ul>
+    </div>
+</div>
+
 </body>
 </html>
